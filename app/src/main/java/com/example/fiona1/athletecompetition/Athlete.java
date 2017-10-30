@@ -6,14 +6,14 @@ import java.util.ArrayList;
  * Created by Fiona1 on 30/10/2017.
  */
 
-public abstract class Athlete implements AthleteLog {
+public abstract class Athlete {
 
     private String name;
-    ArrayList<Integer> runLog;
+    private RunApp runLog;
 
-    public Athlete(String name) {
+    public Athlete(String name, RunApp runLog) {
         this.name = name;
-        this.runLog = new ArrayList<Integer>();
+        this.runLog = runLog;
     }
 
     public String getName() {
@@ -34,47 +34,38 @@ public abstract class Athlete implements AthleteLog {
 
     public abstract int calculatePoints();
 
-    public String awardMedal(int points) {
-        if (points >= 15) {
-            return "You have won a gold medal";
-        } else if (points >= 10) {
-            return "You have won a silver medal";
-        } else if (points >= 5) {
-            return "You have won a bronze medal";
-        } else return "You suck";
-    }
+//    public String awardMedal(int points) {
+//        if (points >= 15) {
+//            return "You have won a gold medal";
+//        } else if (points >= 10) {
+//            return "You have won a silver medal";
+//        } else if (points >= 5) {
+//            return "You have won a bronze medal";
+//        } else return "You suck";
+//    }
 
     public void participate(){
         System.out.println(prepare());
         System.out.println(compete());
-        System.out.println(awardMedal(calculatePoints()));
+//        System.out.println(awardMedal(calculatePoints()));
     }
 
-    @Override
+
     public void run(Integer distance) {
-        runLog.add(distance);
+        runLog.addDistance(distance);
     }
 
-    @Override
     public int getLastRunDistance() {
-        return runLog.get(runLog.size()-1);
+        return runLog.getLastRunDistance();
     }
 
-    @Override
+
     public int getTotalRunDistance() {
-        int total = 0;
-        for (Integer session : runLog) {
-            total += session;
-        }
-        return total;
+        return runLog.getTotalRunDistance();
     }
 
     public void printLog() {
-        System.out.println("Total distance: " + getTotalRunDistance());
-        System.out.println("Sessions: ");
-        for(Integer session : runLog) {
-            System.out.println(session);
-        }
+        runLog.printLog();
     }
 
 

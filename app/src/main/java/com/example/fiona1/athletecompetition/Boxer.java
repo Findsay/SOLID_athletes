@@ -8,8 +8,8 @@ public class Boxer extends Athlete {
     private int hitsGiven;
     private int hitsTaken;
 
-    public Boxer(String name, int hitsGiven, int hitsTaken) {
-        super(name);
+    public Boxer(String name, RunApp runLog, int hitsGiven, int hitsTaken) {
+        super(name, runLog);
         this.hitsGiven = hitsGiven;
         this.hitsTaken = hitsTaken;
     }

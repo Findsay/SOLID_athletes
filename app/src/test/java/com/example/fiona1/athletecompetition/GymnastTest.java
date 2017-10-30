@@ -12,10 +12,12 @@ import static org.junit.Assert.assertEquals;
 public class GymnastTest {
     Event event;
     Gymnast gymnastGold;
+    RunApp runLog;
 
     @Before
     public void setUp() throws Exception {
-        gymnastGold = new Gymnast("Gary", 10, 5);
+        runLog = new RunApp();
+        gymnastGold = new Gymnast("Gary", runLog, 10, 5);
         event = new Event("Gymnastics", 1);
 
     }
@@ -29,12 +31,6 @@ public class GymnastTest {
     @Test
     public void canCompete() throws Exception {
         assertEquals("Competing in event!", gymnastGold.compete());
-
-    }
-
-    @Test
-    public void canGetMedal() throws Exception {
-        assertEquals("You have won a gold medal", gymnastGold.awardMedal(gymnastGold.calculatePoints()));
 
     }
 

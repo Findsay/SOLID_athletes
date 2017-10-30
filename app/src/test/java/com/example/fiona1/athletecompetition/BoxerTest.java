@@ -15,14 +15,14 @@ public class BoxerTest {
     private Boxer boxerSilver;
     private Boxer boxerBronze;
     private Boxer boxerFailure;
+    private RunApp runLog;
 
 
     @Before
     public void setUp() throws Exception {
-        boxerGold = new Boxer("Fred", 20, 3);
-        boxerSilver = new Boxer("George", 15, 2);
-        boxerBronze = new Boxer("Frank", 10, 1);
-        boxerFailure = new Boxer("Barry", 1, 1);
+        runLog = new RunApp();
+        boxerGold = new Boxer("Fred", runLog, 20, 3);
+
 
     }
 
@@ -43,14 +43,7 @@ public class BoxerTest {
 
     }
 
-    @Test
-    public void testAwardMedal() throws Exception {
-        assertEquals("You have won a gold medal", boxerGold.awardMedal(boxerGold.calculatePoints()));
-        assertEquals("You have won a silver medal", boxerSilver.awardMedal(boxerSilver.calculatePoints()));
-        assertEquals("You have won a bronze medal", boxerBronze.awardMedal(boxerBronze.calculatePoints()));
-        assertEquals("You suck", boxerFailure.awardMedal(boxerFailure.calculatePoints()));
 
-    }
 
     @Test
     public void getLastRunDistance() throws Exception {

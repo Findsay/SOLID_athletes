@@ -7,7 +7,7 @@ package com.example.fiona1.athletecompetition;
 public interface AthleteLog {
 
     void printLog();
-    void run(Integer distance);
+    void addDistance(int distance);
     int getLastRunDistance();
     int getTotalRunDistance();
 }

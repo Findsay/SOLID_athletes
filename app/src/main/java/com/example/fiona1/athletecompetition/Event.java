@@ -36,7 +36,18 @@ public class Event {
         if(canStart()) {
             for(Athlete athlete : athletes) {
                 athlete.participate();
+                this.awardMedal(athlete.calculatePoints());
             }
         }
+    }
+
+    public String awardMedal(int points) {
+        if (points >= 15) {
+            return "You have won a gold medal";
+        } else if (points >= 10) {
+            return "You have won a silver medal";
+        } else if (points >= 5) {
+            return "You have won a bronze medal";
+        } else return "You suck";
     }
 }

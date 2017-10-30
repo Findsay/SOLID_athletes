@@ -8,8 +8,8 @@ public class Gymnast extends Athlete {
     private int difficultyPoints;
     private int executionPoints;
 
-    public Gymnast(String name, int difficultyPoints, int executionPoints) {
-        super(name);
+    public Gymnast(String name, RunApp runLog, int difficultyPoints, int executionPoints) {
+        super(name, runLog);
         this.difficultyPoints = difficultyPoints;
         this.executionPoints = executionPoints;
     }
